@@ -100,9 +100,13 @@ const removeManyPeople = (done) => {
 /** 12) Chain Search Query Helpers to Narrow Search Results */
 const queryChain = (done) => {
   const foodToSearch = "burrito";
-  Person.find({food:foodToSearch}).sort({name:1}).limit(2).select({age:0}).exec(function (err, data) {
-      if (err) return console.log(err);
-      done(null, data);
+  Person.find({food:foodToSearch})
+      .sort({name:-1})
+      .limit(2)
+      .select({age:0})
+      .exec(function (err, data) {
+        if (err) return console.log(err);
+        done(null, data);
   });
 };
 
