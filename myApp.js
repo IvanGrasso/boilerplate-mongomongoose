@@ -24,10 +24,13 @@ const createAndSavePerson = (done) => {
 
 /** 4) Create Many Records with model.create() */
 const createManyPeople = (arrayOfPeople, done) => {
-  var persons = Person.create([
+  Person.create([
       {name: "Kevin Furman", age: 29, favoriteFoods: ["Falafel", "Kebab", "Pizza Napoletana"]},
       {name: "Matías Valdes", age: 29, favoriteFoods: ["Chocolate"]}
-  ]);
+  ], function (err, people) {
+      if (err) return console.log(err);
+      done(null, people);
+  });
   done(null, persons);
 };
 
