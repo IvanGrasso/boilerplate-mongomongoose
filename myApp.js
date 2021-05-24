@@ -18,11 +18,16 @@ const createAndSavePerson = (done) => {
   var person = new Person({name: "Kevin Furman", age: 29, favoriteFoods: ["Falafel", "Kebab", "Pizza Napoletana"]})
   person.save(function(err, data) {
     if (err) return console.error(err);
-    done(null, data)
+    done(null, data);
   })
 };
 
+/** 4) Create Many Records with model.create() */
 const createManyPeople = (arrayOfPeople, done) => {
+  var persons = new Person([
+      {name: "Kevin Furman", age: 29, favoriteFoods: ["Falafel", "Kebab", "Pizza Napoletana"]},
+      {name: "Matías Valdes", age: 29, favoriteFoods: ["Chocolate"]}
+  ])
   done(null /*, data*/);
 };
 
