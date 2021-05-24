@@ -47,11 +47,15 @@ const findOneByFood = (food, done) => {
   Person.findOne({favoriteFoods: [food]}, function (err, personFound) {
       if (err) return console.log(err);
       done(null, personFound);
-  })
+  });
 };
 
+/** 7) Use model.findById() to Search Your Database By _id */
 const findPersonById = (personId, done) => {
-  done(null /*, data*/);
+  Person.findById({personId}, function (err, personFound) {
+      if (err) return console.log(err);
+      done(null, personFound);
+  })
 };
 
 const findEditThenSave = (personId, done) => {
