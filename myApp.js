@@ -28,6 +28,7 @@ const createManyPeople = (arrayOfPeople, done) => {
       {name: "Kevin Furman", age: 29, favoriteFoods: ["Falafel", "Kebab", "Pizza Napoletana"]},
       {name: "Matías Valdes", age: 29, favoriteFoods: ["Chocolate"]}
   ]);
+  done(null, persons);
 };
 
 const findPeopleByName = (personName, done) => {
